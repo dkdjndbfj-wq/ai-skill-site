@@ -566,9 +566,41 @@ function filterCards(cat, el) {
     }
   });
 }
-</script>
+
+function subscribeEmail() {
+  var email = document.getElementById("sub-email").value;
+  if (!email || email.indexOf("@") === -1) { showMsg("请输入有效的邮箱地址", false); return; }
+  var btn = document.querySelector(".nl-btn");
+  btn.textContent = "提交中...";
+  btn.disabled = true;
+  fetch("https://api.buttondown.com/v1/subscribers", {
+    method: "POST",
+    headers: { "Authorization": "Token 2e086b97-0621-4c96-8074-d8e62c5ce9f6", "Content-Type": "application/json" },
+    body: JSON.stringify({ email_address: email })
+  }).then(function(r) {
+    if (r.ok || r.status === 409) {
+      showMsg("✅ 订阅成功！每天会收到最新 AI Skills 资讯。", true);
+      document.getElementById("sub-email").value = "";
+    } else {
+      showMsg("❌ 订阅失败，请稍后再试。", false);
+    }
+    btn.textContent = "订阅"; btn.disabled = false;
+  }).catch(function() {
+    showMsg("❌ 网络错误，请稍后再试。", false);
+    btn.textContent = "订阅"; btn.disabled = false;
+  });
+}
+function showMsg(msg, ok) {
+  var el = document.getElementById("sub-msg");
+  el.textContent = msg;
+  el.style.display = "block";
+  el.style.background = ok ? "rgba(34,197,94,.15)" : "rgba(239,68,68,.15)";
+  el.style.color = ok ? "#4ade80" : "#f87171";
+  el.style.border = "1px solid " + (ok ? "rgba(34,197,94,.3)" : "rgba(239,68,68,.3)");
+}</script>
 </body>
 </html>
+
 
 
 
