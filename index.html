@@ -40,7 +40,7 @@ body{font-family:'Inter','Noto Sans SC',sans-serif;color:#1a1a2e;background:#0f0
 .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:20px}
 
 /* Card styles - now divs, not links */
-.card{background:rgba(30,30,60,.6);border:1px solid rgba(139,92,246,.12);border-radius:16px;padding:28px;text-decoration:none;transition:all .25s ease;position:relative;overflow:hidden;cursor:pointer}
+.card{background:rgba(40,40,80,.85);border:1px solid rgba(139,92,246,.25);border-radius:16px;padding:28px;text-decoration:none;transition:all .25s ease;position:relative;overflow:hidden;cursor:pointer}
 .card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#8b5cf6,#ec4899,#06b6d4);opacity:0;transition:.25s}
 .card:hover{border-color:rgba(139,92,246,.3);box-shadow:0 12px 40px rgba(139,92,246,.15);transform:translateY(-3px)}
 .card:hover::before{opacity:1}
@@ -53,8 +53,8 @@ body{font-family:'Inter','Noto Sans SC',sans-serif;color:#1a1a2e;background:#0f0
 .tag-art{background:rgba(245,158,11,.12);color:#fbbf24}
 .tag-money{background:rgba(34,197,94,.12);color:#4ade80}
 .card-date{font-size:.8rem;color:#94a3b8;font-weight:500;display:block;margin-bottom:6px}
-.card-title{font-size:1.1rem;font-weight:800;display:block;margin-bottom:10px;color:#fff;line-height:1.4;cursor:pointer;transition:.2s;text-shadow:0 0 20px rgba(167,139,250,.3)}
-.card:hover .card-title,.card.expanded .card-title{color:#fff;text-shadow:0 0 20px rgba(167,139,250,.6)}
+.card-title{font-size:1.15rem;font-weight:800;display:block;margin-bottom:10px;color:#ffffff;line-height:1.4;cursor:pointer;transition:.2s;letter-spacing:.01em}
+.card:hover .card-title,.card.expanded .card-title{color:#ffffff}
 .card-title-link{text-decoration:none;color:inherit}
 .card-title-link:hover{color:#a78bfa}
 .card-desc{font-size:.9rem;color:#cbd5e1;display:block;margin-bottom:14px;line-height:1.7}
@@ -599,6 +599,7 @@ function showMsg(msg, ok) {
 </script>
 </body>
 </html>
+
 
 
 
