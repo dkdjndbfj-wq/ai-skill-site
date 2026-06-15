@@ -341,10 +341,11 @@ body{font-family:'Inter','Noto Sans SC',sans-serif;color:#1a1a2e;background:#0f0
 <div class="nl-icon">📬</div>
 <div class="nl-title">订阅 AI 技能站周刊</div>
 <div class="nl-desc">每周精选 5 个 AI 工具 + 3 个提示词技巧 + 1 个赚钱案例，直接送到你的邮箱。</div>
-<div class="nl-form">
-<input class="nl-input" type="email" placeholder="输入你的邮箱地址">
-<button class="nl-btn" onclick="handleSubscribe()">订阅</button>
-</div>
+<form action="https://buttondown.com/api/emails/embed-subscribe/dbfj" method="post" class="nl-form" target="popupwindow" onsubmit="window.open('https://buttondown.com/dbfj', 'popupwindow')">
+<input class="nl-input" aria-label="Email" type="email" name="email" placeholder="输入你的邮箱地址" required>
+<input type="hidden" value="1" name="embed">
+<button class="nl-btn" type="submit">订阅</button>
+</form>
 </div>
 </div>
 
@@ -389,4 +390,5 @@ function filterCards(cat, el) {
 </script>
 </body>
 </html>
+
 
