@@ -540,20 +540,17 @@ body{font-family:'Inter','Noto Sans SC',sans-serif;color:#1a1a2e;background:#0f0
 <script>
 function toggleCard(card) {
   var wasExpanded = card.classList.contains("expanded");
-  // Close all cards first
   document.querySelectorAll(".card.expanded").forEach(function(c) {
     c.classList.remove("expanded");
     var readSpan = c.querySelector(".card-read");
     if (readSpan) readSpan.innerHTML = '<span class="arrow">▶</span> 展开预览';
   });
-  // Toggle clicked card
   if (!wasExpanded) {
     card.classList.add("expanded");
     var readSpan = card.querySelector(".card-read");
     if (readSpan) readSpan.innerHTML = '<span class="arrow">▼</span> 收起预览';
   }
 }
-var s=JSON.parse(localStorage.getItem("ai-subs")||"[]");if(s.includes(e)){alert("你已经订阅过了！");return}s.push(e);localStorage.setItem("ai-subs",JSON.stringify(s));document.getElementById("sub-email").value="";alert("✅ 感谢订阅！我们会将最新 AI 资讯发送到你的邮箱。")}
 function filterCards(cat, el) {
   document.querySelectorAll(".tab").forEach(function(t) { t.classList.remove("active"); });
   el.classList.add("active");
@@ -566,7 +563,6 @@ function filterCards(cat, el) {
     }
   });
 }
-
 function subscribeEmail() {
   var email = document.getElementById("sub-email").value;
   if (!email || email.indexOf("@") === -1) { showMsg("请输入有效的邮箱地址", false); return; }
@@ -584,10 +580,12 @@ function subscribeEmail() {
     } else {
       showMsg("❌ 订阅失败，请稍后再试。", false);
     }
-    btn.textContent = "订阅"; btn.disabled = false;
+    btn.textContent = "订阅";
+    btn.disabled = false;
   }).catch(function() {
     showMsg("❌ 网络错误，请稍后再试。", false);
-    btn.textContent = "订阅"; btn.disabled = false;
+    btn.textContent = "订阅";
+    btn.disabled = false;
   });
 }
 function showMsg(msg, ok) {
@@ -597,9 +595,11 @@ function showMsg(msg, ok) {
   el.style.background = ok ? "rgba(34,197,94,.15)" : "rgba(239,68,68,.15)";
   el.style.color = ok ? "#4ade80" : "#f87171";
   el.style.border = "1px solid " + (ok ? "rgba(34,197,94,.3)" : "rgba(239,68,68,.3)");
-}</script>
+}
+</script>
 </body>
 </html>
+
 
 
 
