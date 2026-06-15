@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
@@ -343,7 +343,7 @@ body{font-family:'Inter','Noto Sans SC',sans-serif;color:#1a1a2e;background:#0f0
 <div class="nl-desc">每周精选 5 个 AI 工具 + 3 个提示词技巧 + 1 个赚钱案例，直接送到你的邮箱。</div>
 <div class="nl-form">
 <input class="nl-input" type="email" placeholder="输入你的邮箱地址">
-<button class="nl-btn" onclick="alert('感谢订阅！（演示功能）')">订阅</button>
+<button class="nl-btn" onclick="handleSubscribe()">订阅</button>
 </div>
 </div>
 </div>
@@ -373,6 +373,7 @@ function toggleCard(card) {
     if (readSpan) readSpan.innerHTML = '<span class="arrow">▼</span> 收起预览';
   }
 }
+function handleSubscribe(){var e=document.getElementById("sub-email").value;if(!e||!e.includes("@")){alert("请输入有效的邮箱地址");return}var s=JSON.parse(localStorage.getItem("ai-subs")||"[]");if(s.includes(e)){alert("你已经订阅过了！");return}s.push(e);localStorage.setItem("ai-subs",JSON.stringify(s));document.getElementById("sub-email").value="";alert("✅ 感谢订阅！我们会将最新 AI 资讯发送到你的邮箱。")}
 function filterCards(cat, el) {
   document.querySelectorAll(".tab").forEach(function(t) { t.classList.remove("active"); });
   el.classList.add("active");
