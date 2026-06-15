@@ -373,7 +373,7 @@ function toggleCard(card) {
     if (readSpan) readSpan.innerHTML = '<span class="arrow">▼</span> 收起预览';
   }
 }
-function handleSubscribe(){var e=document.getElementById("sub-email").value;if(!e||!e.includes("@")){alert("请输入有效的邮箱地址");return}var s=JSON.parse(localStorage.getItem("ai-subs")||"[]");if(s.includes(e)){alert("你已经订阅过了！");return}s.push(e);localStorage.setItem("ai-subs",JSON.stringify(s));document.getElementById("sub-email").value="";alert("✅ 感谢订阅！我们会将最新 AI 资讯发送到你的邮箱。")}
+var s=JSON.parse(localStorage.getItem("ai-subs")||"[]");if(s.includes(e)){alert("你已经订阅过了！");return}s.push(e);localStorage.setItem("ai-subs",JSON.stringify(s));document.getElementById("sub-email").value="";alert("✅ 感谢订阅！我们会将最新 AI 资讯发送到你的邮箱。")}
 function filterCards(cat, el) {
   document.querySelectorAll(".tab").forEach(function(t) { t.classList.remove("active"); });
   el.classList.add("active");
@@ -389,3 +389,4 @@ function filterCards(cat, el) {
 </script>
 </body>
 </html>
+
