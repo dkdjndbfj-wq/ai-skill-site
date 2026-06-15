@@ -116,25 +116,58 @@ body{font-family:'Inter','Noto Sans SC',sans-serif;background:#0f0f23;color:#e2e
 </div>
 
 <div class="payment-section" id="payment">
-<h2>📱 支付宝扫码订阅</h2>
-<p>扫码支付 ¥9.9/月，付款后填写邮箱，我们会在 24 小时内开通付费订阅。</p>
+<h2>📱 三步完成订阅</h2>
+<p>通过爱发电付款，支持支付宝 / 微信，安全便捷。</p>
 
-<div class="qr-container">
-<div class="qr-box">
-<img src="alipay-qr.png" alt="支付宝收款码" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22%3E%3Crect fill=%22%231a1a2e%22 width=%22200%22 height=%22200%22/%3E%3Ctext fill=%22%2364748b%22 x=%22100%22 y=%2295%22 text-anchor=%22middle%22 font-size=%2214%22%3E支付宝收款码%3C/text%3E%3Ctext fill=%22%2364748b%22 x=%22100%22 y=%22115%22 text-anchor=%22middle%22 font-size=%2212%22%3E请替换为你的二维码%3C/text%3E%3C/svg%3E'">
-<p>支付宝扫码支付</p>
-<p style="font-size:.78rem;color:#a78bfa;margin-top:4px">¥9.9 / 月</p>
+<div style="display:flex;flex-direction:column;gap:20px;max-width:500px;margin:0 auto">
+
+<div style="background:rgba(139,92,246,.08);border:1px solid rgba(139,92,246,.15);border-radius:12px;padding:20px;display:flex;align-items:center;gap:16px">
+<div style="width:40px;height:40px;background:linear-gradient(135deg,#8b5cf6,#ec4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;color:#fff;flex-shrink:0">①</div>
+<div>
+<div style="font-weight:600;color:#e2e8f0;margin-bottom:4px">点击下方按钮，跳转爱发电付款</div>
+<div style="font-size:.82rem;color:#94a3b8">支持支付宝 / 微信，¥9.9/月</div>
 </div>
 </div>
+
+<div style="background:rgba(139,92,246,.08);border:1px solid rgba(139,92,246,.15);border-radius:12px;padding:20px;display:flex;align-items:center;gap:16px">
+<div style="width:40px;height:40px;background:linear-gradient(135deg,#8b5cf6,#ec4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;color:#fff;flex-shrink:0">②</div>
+<div>
+<div style="font-weight:600;color:#e2e8f0;margin-bottom:4px">付款成功后，回来填写邮箱</div>
+<div style="font-size:.82rem;color:#94a3b8">填写你收邮件的邮箱地址</div>
+</div>
+</div>
+
+<div style="background:rgba(139,92,246,.08);border:1px solid rgba(139,92,246,.15);border-radius:12px;padding:20px;display:flex;align-items:center;gap:16px">
+<div style="width:40px;height:40px;background:linear-gradient(135deg,#8b5cf6,#ec4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;color:#fff;flex-shrink:0">③</div>
+<div>
+<div style="font-weight:600;color:#e2e8f0;margin-bottom:4px">24 小时内开通，邮件通知你</div>
+<div style="font-size:.82rem;color:#94a3b8">确认后你会收到开通邮件</div>
+</div>
+</div>
+
+</div>
+
+<div style="text-align:center;margin:30px 0">
+<a href="https://afdian.net/a/你的爱发电用户名" target="_blank" class="btn btn-primary" style="display:inline-block;max-width:300px;font-size:1.05rem;padding:16px 32px">
+🚀 前往爱发电付款（¥9.9/月）
+</a>
+</div>
+
+<hr style="border:none;border-top:1px solid rgba(139,92,246,.15);margin:30px 0">
+
+<h3 style="text-align:center;color:#e2e8f0;margin-bottom:16px;font-size:1.05rem">已完成付款？填写邮箱开通订阅</h3>
 
 <div style="max-width:400px;margin:0 auto">
 <div class="form-group">
-<input type="email" id="pay-email" placeholder="请输入你的邮箱地址（付款后填写）">
+<input type="email" id="pay-email" placeholder="请输入你的邮箱地址">
 </div>
 <div class="form-group">
 <input type="text" id="pay-name" placeholder="你的称呼（选填）">
 </div>
-<button class="btn btn-primary" onclick="submitPayment()">提交订阅信息</button>
+<div class="form-group">
+<input type="text" id="pay-order" placeholder="爱发电订单号（选填，方便核对）">
+</div>
+<button class="btn btn-primary" onclick="submitPayment()">✅ 提交，开通订阅</button>
 </div>
 
 <div class="success-msg" id="success-msg">
@@ -157,8 +190,8 @@ body{font-family:'Inter','Noto Sans SC',sans-serif;background:#0f0f23;color:#e2e
 <p>免费版可以在网站上看所有文章，付费版会每天把文章直接发到你的邮箱，不用打开网站就能看，还有独家深度分析。</p>
 </div>
 <div class="faq-item">
-<h3>支持微信支付吗？</h3>
-<p>目前只支持支付宝，后续会加入微信支付。如有需要请联系我们的邮箱。</p>
+<h3>怎么付款？</h3>
+<p>通过爱发电平台付款，支持支付宝和微信两种方式。</p>
 </div>
 </div>
 </div>
@@ -188,4 +221,5 @@ function submitPayment() {
 </script>
 </body>
 </html>
+
 
