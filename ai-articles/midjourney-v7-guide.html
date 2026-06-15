@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Midjourney V7 完全指南：AI 绘画从此人人可上手 - AI 技能站</title>
+<style>@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;600;700;800&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Inter','Noto Sans SC',sans-serif;background:#0f0f23;color:#1a1a2e;-webkit-font-smoothing:antialiased}
+.bg-glow{position:fixed;top:-200px;right:-200px;width:700px;height:700px;background:radial-gradient(circle,rgba(139,92,246,.15) 0%,transparent 70%);z-index:-1;animation:float 20s ease-in-out infinite}
+.bg-glow2{position:fixed;bottom:-200px;left:-200px;width:600px;height:600px;background:radial-gradient(circle,rgba(6,182,212,.12) 0%,transparent 70%);z-index:-1;animation:float 25s ease-in-out infinite reverse}
+@keyframes float{0%,100%{transform:translate(0,0)}50%{transform:translate(40px,-30px)}}
+.header{background:rgba(15,15,35,.85);backdrop-filter:blur(20px);border-bottom:1px solid rgba(139,92,246,.15);position:sticky;top:0;z-index:100}
+.header-inner{max-width:780px;margin:0 auto;padding:0 28px;display:flex;justify-content:space-between;align-items:center;height:64px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:800;font-size:1.15rem;color:#fff}
+.logo-icon{width:36px;height:36px;background:linear-gradient(135deg,#8b5cf6,#ec4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;color:#fff;box-shadow:0 4px 16px rgba(139,92,246,.4)}
+.logo-text{background:linear-gradient(135deg,#a78bfa,#ec4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.nav-links{list-style:none;display:flex;gap:6px}.nav-links a{color:#94a3b8;text-decoration:none;font-size:.88rem;padding:8px 14px;border-radius:8px}.nav-links a:hover{color:#a78bfa;background:rgba(139,92,246,.1)}
+.wrap{max-width:780px;margin:0 auto;padding:40px 28px 80px}
+.back{display:inline-flex;align-items:center;gap:6px;color:#a78bfa;text-decoration:none;font-size:.88rem;font-weight:500;margin-bottom:28px;padding:8px 16px;border-radius:8px;border:1px solid rgba(139,92,246,.2);transition:.2s}.back:hover{background:rgba(139,92,246,.1)}
+.wrap h1{font-size:1.8rem;font-weight:800;color:#fff;margin-bottom:12px;line-height:1.35}
+.meta{display:flex;gap:16px;margin-bottom:32px;font-size:.85rem;color:#64748b;flex-wrap:wrap}
+.wrap h2{font-size:1.25rem;font-weight:700;color:#e2e8f0;margin:36px 0 14px;padding-bottom:8px;border-bottom:2px solid rgba(139,92,246,.15)}
+.wrap h3{font-size:1.05rem;font-weight:600;color:#e2e8f0;margin:24px 0 10px}
+.wrap p{color:#94a3b8;line-height:1.85;margin-bottom:14px;font-size:.95rem}
+.wrap ul{margin:10px 0 16px 20px}.wrap li{color:#94a3b8;line-height:1.75;margin-bottom:8px;font-size:.95rem}.wrap li strong{color:#e2e8f0}
+.wrap strong{color:#e2e8f0}
+.wrap blockquote{border-left:4px solid #8b5cf6;background:rgba(139,92,246,.08);padding:14px 18px;margin:20px 0;border-radius:0 10px 10px 0;color:#94a3b8;font-size:.95rem}
+.compare-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin:20px 0}
+.compare-card{background:rgba(30,30,60,.6);border:1px solid rgba(139,92,246,.15);border-radius:12px;padding:20px;text-align:center}
+.compare-card.winner{border-color:rgba(139,92,246,.4);box-shadow:0 0 20px rgba(139,92,246,.15)}
+.compare-card h4{font-size:1.05rem;font-weight:700;color:#a78bfa;margin-bottom:14px}
+.compare-item{display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-bottom:1px solid rgba(139,92,246,.06)}.compare-item:last-of-type{border-bottom:none}
+.compare-label{font-size:.8rem;color:#64748b;text-align:left}.compare-value{font-size:.8rem;color:#e2e8f0;font-weight:600;text-align:right}
+.compare-tag{display:block;margin-top:14px;font-size:.78rem;padding:5px 10px;border-radius:6px;background:rgba(139,92,246,.1);color:#a78bfa}
+.rec-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:20px 0}
+.rec-card{background:rgba(30,30,60,.6);border:1px solid rgba(139,92,246,.15);border-radius:12px;padding:18px}
+.rec-card h4{font-size:.95rem;font-weight:700;color:#e2e8f0;margin-bottom:6px}.rec-card p{font-size:.85rem;color:#94a3b8;line-height:1.6;margin:0}
+.tip-box{background:rgba(6,182,212,.08);border:1px solid rgba(6,182,212,.2);border-radius:12px;padding:18px 20px;margin:20px 0;font-size:.9rem;color:#94a3b8;line-height:1.7}
+.tip-box strong{color:#22d3ee}
+.nav-bottom{display:flex;justify-content:space-between;margin-top:48px;padding-top:24px;border-top:1px solid rgba(139,92,246,.1)}
+.nav-bottom a{color:#a78bfa;text-decoration:none;font-size:.85rem;padding:8px 14px;border-radius:8px;border:1px solid rgba(139,92,246,.2)}.nav-bottom a:hover{background:rgba(139,92,246,.1)}
+.footer{border-top:1px solid rgba(139,92,246,.1);background:rgba(15,15,35,.8);padding:28px;text-align:center;color:#64748b;font-size:.78rem}
+@media(max-width:700px){.compare-grid{grid-template-columns:1fr}.wrap h1{font-size:1.4rem}.rec-grid{grid-template-columns:1fr}}</style>
+</head>
+<body>
+<div class="bg-glow"></div><div class="bg-glow2"></div>
+<header class="header"><div class="header-inner">
+<a class="logo" href="../index.html"><div class="logo-icon">🤖</div><span class="logo-text">AI 技能站</span></a>
+<ul class="nav-links"><li><a href="../index.html">首页</a></li></ul>
+</div></header>
+<div class="wrap">
+<a class="back" href="../index.html">← 返回首页</a>
+<h1>Midjourney V7 完全指南：AI 绘画从此人人可上手</h1>
+<div class="meta"><span>📅 2026年6月11日</span><span>⏱ 12 分钟</span><span>🤖 AI 技能站</span></div>
+<h2>Midjourney V7 有什么新特性？</h2>
+<p>Midjourney V7 是 2026 年发布的最新版本，带来了革命性的改进：</p>
+<ul><li><strong>中文提示词原生支持：</strong>直接用中文描述就能生成高质量图片</li><li><strong>一致性角色：</strong>同一个角色可以在不同场景中保持外观一致</li><li><strong>精确文字渲染：</strong>能在图片中正确生成中文和英文文字</li><li><strong>视频生成：</strong>支持从图片生成 4 秒短视频</li></ul>
+<h2>提示词公式</h2>
+<p>一个好的 Midjourney 提示词包含以下要素：</p>
+<blockquote>[主体] + [风格] + [环境] + [光线] + [镜头] + [参数]</blockquote>
+<div class="compare-grid"><div class="compare-card"><h4>❌ 普通提示词</h4><p style="font-size:.85rem;color:#94a3b8">"一只猫"</p><p style="font-size:.8rem;color:#64748b;margin-top:8px">结果：随机风格，质量不稳定</p></div><div class="compare-card winner"><h4>✅ 进阶提示词</h4><p style="font-size:.85rem;color:#94a3b8">"一只橘色虎斑猫坐在窗台上，窗外是雨天的东京街景，温暖的室内光线，吉卜力动画风格 --ar 16:9 --v 7"</p><p style="font-size:.8rem;color:#64748b;margin-top:8px">结果：构图精美，风格统一</p></div></div>
+<h2>10 种最火的风格关键词</h2>
+<ul><li><strong>赛博朋克：</strong>cyberpunk, neon lights, futuristic city</li><li><strong>水彩画：</strong>watercolor painting, soft colors</li><li><strong>吉卜力风：</strong>Studio Ghibli style, anime, dreamy</li><li><strong>写实摄影：</strong>photorealistic, 8K, DSLR</li><li><strong>像素艺术：</strong>pixel art, 16-bit, retro game</li><li><strong>中国水墨：</strong>Chinese ink painting, traditional</li><li><strong>3D 渲染：</strong>3D render, C4D style, isometric</li><li><strong>油画：</strong>oil painting, impressionist</li><li><strong>极简主义：</strong>minimalist, clean, white space</li><li><strong>扁平插画：</strong>flat illustration, vector style</li></ul>
+<h2>变现方式</h2>
+<ul><li><strong>卖素材图：</strong>在 Shutterstock、Adobe Stock 等平台出售</li><li><strong>定制头像/壁纸：</strong>在淘宝、小红书接单</li><li><strong>电商产品图：</strong>帮商家生成产品场景图</li></ul>
+<div class="tip-box"><strong>💡 避坑提醒：</strong>商业用途请确保有 Pro 或 Mega 订阅（$30-60/月）。免费版生成的图片仅限个人使用。</div>
+<div class="nav-bottom">
+<a href="../index.html">← 返回文章列表</a>
+<a href="../index.html">查看更多 AI 技巧 →</a>
+</div>
+</div>
+<div class="footer">© 2026 AI 技能站 · 数据由 OpenClaw 自动抓取 · Made with 🤖</div>
+</body>
+</html>
